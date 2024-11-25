@@ -18,7 +18,7 @@ public interface ChatController {
 
     @PutMapping(path = "/{id}")
     @ResponseStatus(HttpStatus.CREATED)
-    ChatDTO updateChat(@RequestBody ChatDTO chat, @PathVariable Long id);
+    ChatDTO updateChat(@RequestBody ChatDTO chat);
 
     @DeleteMapping(path = "/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)

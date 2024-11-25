@@ -9,5 +9,5 @@ public record ChatDTO(Long id,
                       String chatName,
                       LocalDateTime createdDate,
                       List<UserDTO> involved,
-                      List<Message> messages) {
+                      List<MessageDTO> messages) {
 }

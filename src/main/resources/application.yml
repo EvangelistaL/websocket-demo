@@ -1,3 +1,5 @@
 spring:
   application:
     name: websocket-demo
+  profiles:
+    active: dev
