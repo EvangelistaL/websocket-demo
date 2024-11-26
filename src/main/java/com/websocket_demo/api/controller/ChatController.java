@@ -16,7 +16,7 @@ public interface ChatController {
     @ResponseStatus(HttpStatus.OK)
     ChatDTO retrieveChatById(@PathVariable Long id);
 
-    @PutMapping(path = "/{id}")
+    @PutMapping
     @ResponseStatus(HttpStatus.CREATED)
     ChatDTO updateChat(@RequestBody ChatDTO chat);
 
