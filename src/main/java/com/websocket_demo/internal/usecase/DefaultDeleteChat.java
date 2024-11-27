@@ -19,7 +19,7 @@ public class DefaultDeleteChat implements DeleteChat {
 
     @Override
     public void execute(Long id) {
-        Chat chat = ChatDtoToChatUtils.transform(retrieveChat.execute(ChatSpecification.findById(id)));
-        chatRepository.delete(chat);
+        Chat chat = ChatDtoToChatUtils.transform(this.retrieveChat.execute(ChatSpecification.findById(id)));
+        this.chatRepository.delete(chat);
     }
 }

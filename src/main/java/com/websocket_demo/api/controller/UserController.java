@@ -1,5 +1,6 @@
 package com.websocket_demo.api.controller;
 
+import com.querydsl.core.types.Predicate;
 import com.websocket_demo.api.dto.UserDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -18,15 +19,15 @@ public interface UserController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    Page<UserDTO> retrieveUsers(Pageable pageable);
+    Page<UserDTO> retrieveUsers(Pageable pageable, Predicate predicate);
 
     @GetMapping(path = "/{id}")
     @ResponseStatus(HttpStatus.OK)
     UserDTO retrieveUserById(@PathVariable Long id);
 
-    @PutMapping(path = "/{id}")
+    @PutMapping
     @ResponseStatus(HttpStatus.CREATED)
-    UserDTO updateUser(@RequestBody UserDTO userDTO, @PathVariable Long id);
+    UserDTO updateUser(@RequestBody UserDTO userDTO);
 
     @DeleteMapping(path = "/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)

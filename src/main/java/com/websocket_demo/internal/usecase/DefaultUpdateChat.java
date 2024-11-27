@@ -15,7 +15,8 @@ public class DefaultUpdateChat implements UpdateChat {
 
     @Override
     public ChatDTO execute(ChatDTO chat) {
-        return ChatDtoToChatUtils.transform(chatRepository.save(ChatDtoToChatUtils.transform(chat)));
+        return ChatDtoToChatUtils
+                .transform(this.chatRepository.save(ChatDtoToChatUtils.transform(chat)));
     }
 
 }

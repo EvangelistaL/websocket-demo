@@ -17,6 +17,6 @@ public class DefaultCreateChat implements CreateChat {
     @Override
     public ChatDTO execute(ChatDTO chat) {
         Chat chatConverted = ChatDtoToChatUtils.transform(chat);
-        return ChatDtoToChatUtils.transform(chatRepository.save(chatConverted));
+        return ChatDtoToChatUtils.transform(this.chatRepository.save(chatConverted));
     }
 }
