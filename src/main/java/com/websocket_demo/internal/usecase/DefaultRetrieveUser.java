@@ -3,7 +3,7 @@ package com.websocket_demo.internal.usecase;
 import com.querydsl.core.types.Predicate;
 import com.websocket_demo.api.dto.UserDTO;
 import com.websocket_demo.api.repository.UserRepository;
-import com.websocket_demo.api.usecase.RetrieveUsers;
+import com.websocket_demo.api.usecase.RetrieveUser;
 import com.websocket_demo.internal.utils.UserDtoToUserUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -14,7 +14,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 @Service
 @RequiredArgsConstructor
-public class DefaultRetrieveUsers implements RetrieveUsers {
+public class DefaultRetrieveUser implements RetrieveUser {
 
     private final UserRepository userRepository;
 
@@ -29,6 +29,6 @@ public class DefaultRetrieveUsers implements RetrieveUsers {
     @Override
     public UserDTO execute(Predicate predicate) {
         return UserDtoToUserUtils.transform(this.userRepository.findOne(predicate)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST)));
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND)));
     }
 }

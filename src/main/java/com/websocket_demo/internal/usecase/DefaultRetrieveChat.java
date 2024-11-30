@@ -29,6 +29,6 @@ public class DefaultRetrieveChat implements RetrieveChat {
     @Override
     public ChatDTO execute(Predicate predicate) {
         return ChatDtoToChatUtils.transform(this.chatRepository.findOne(predicate)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST)));
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND)));
     }
 }

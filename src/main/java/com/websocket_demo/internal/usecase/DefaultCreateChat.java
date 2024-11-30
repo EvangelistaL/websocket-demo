@@ -8,6 +8,8 @@ import com.websocket_demo.internal.utils.ChatDtoToChatUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+
 @Service
 @RequiredArgsConstructor
 public class DefaultCreateChat implements CreateChat {
@@ -17,6 +19,7 @@ public class DefaultCreateChat implements CreateChat {
     @Override
     public ChatDTO execute(ChatDTO chat) {
         Chat chatConverted = ChatDtoToChatUtils.transform(chat);
+        chatConverted.setCreatedDate(LocalDateTime.now());
         return ChatDtoToChatUtils.transform(this.chatRepository.save(chatConverted));
     }
 }

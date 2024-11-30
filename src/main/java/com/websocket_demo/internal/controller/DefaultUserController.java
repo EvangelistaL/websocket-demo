@@ -22,7 +22,7 @@ public class DefaultUserController implements UserController {
 
     private final DeleteUser deleteUser;
 
-    private final RetrieveUsers retrieveUsers;
+    private final RetrieveUser retrieveUser;
 
     private final UpdateUser updateUser;
 
@@ -33,12 +33,12 @@ public class DefaultUserController implements UserController {
 
     @Override
     public Page<UserDTO> retrieveUsers(Pageable pageable, Predicate predicate) {
-        return this.retrieveUsers.execute(pageable, predicate);
+        return this.retrieveUser.execute(pageable, predicate);
     }
 
     @Override
     public UserDTO retrieveUserById(Long id) {
-        return this.retrieveUsers.execute(UserSpecification.findById(id));
+        return this.retrieveUser.execute(UserSpecification.findById(id));
     }
 
     @Override
